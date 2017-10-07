@@ -12,7 +12,7 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Let us tell the tale of Bob Bobberson, the infamous terrorist from Far 
-        # West Syria (a neighborhood in suburban Dearborn Michigan.)
+        # West Syria (a neighborhood in suburban Dearborn, Michigan.)
         # Bob Bobberson wants to buy supplies for making bombs for his terrorist
         # friends. He heard about this awesome website called To-Do in which he can 
         # write out the entire list of supplies he needs so he doesn't have to
@@ -38,9 +38,10 @@ class NewVisitorTest(unittest.TestCase):
 
         # The page updates again, and now shows all items on his list.
 
-        # Bob Bobberson wonders whethers To-Do list, being owned by a greedy corporation
+        # Bob Bobberson wonders whether To-Do list, being owned by a greedy corporation
         # and full of analytics malware, will end up in the hands of a major world power
-        # that has a reputation for blowing up terrorists. Bob, not being a very smart villain,
+        # that has a reputation for asploding terrorists. Just kidding! he's too stupid to 
+        # think of something that clever! Bob, being a rather gormless bellend of a villain,
         # shrugs and figures nothing much will happen. Bob continues entering items into his
         # list including the last two items:
         # ...
@@ -52,11 +53,11 @@ class NewVisitorTest(unittest.TestCase):
         # that his list is exactly how he left it.
 
         # Satisfied, Bob Bobberson shuts down his computer and goes to sleep.
-        
+
 
         # One hour later, while Bob is dead asleep, a missile comes flying through his
-        # window and he is blown to smithereens. We never hear from Bob Bobberson the infamous 
-        # terrorist ever again.
+        # window and he and his apartment are blown to smithereens. We never hear 
+        # from Bob Bobberson the infamous chuckleheaded terrorist ever again.
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')

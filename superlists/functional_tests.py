@@ -45,7 +45,8 @@ class NewVisitorTest(unittest.TestCase):
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(rows.text == "1: Buy chemicals." for row in rows)
+            any(rows.text == "1: Buy chemicals." for row in rows),
+            "New to-do item did not appear in table."
         )
         # There is a text box inviting him to add more items. Having a lot of
         # things he needs to do, he writes out the instructions for making bombs and

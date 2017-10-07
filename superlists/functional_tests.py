@@ -12,6 +12,12 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
+
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Let us tell the tale of Bob Bobberson, the infamous terrorist from Far 
         # West Syria (a neighborhood in suburban Dearborn, Michigan.)
@@ -41,21 +47,19 @@ class NewVisitorTest(unittest.TestCase):
         # "1: Buy chemicals." as an item in the to-do list.
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
-
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Buy chemicals.', [row.text for row in rows])
-        self.assertIn(
-            '2: Use peacock feathers to make a fly',
-            [row.text for row in rows]
-        )
+        self.check_for_row_in_list_table('1: Buy chemicals.')
 
         # There is a text box inviting him to add more items. Having a lot of
         # things he needs to do, he writes out the instructions for making bombs and
         # weapons.
-        self.fail('Finish the test!')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Build chemical lab equipment.')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         # The page updates again, and now shows all items on his list.
+        self.check_for_row_in_list_table('1: Buy chemicals.')
+        self.check_for_row_in_list_table('2: Build chemical lab equipment.')
 
         # Bob Bobberson wonders whether To-Do list, being owned by a greedy corporation
         # and full of analytics malware, will end up in the hands of a major world power
@@ -70,6 +74,7 @@ class NewVisitorTest(unittest.TestCase):
         # Bob is curious whether the website will remember his list when he leaves. So he 
         # closes the browser tab, and goes to the website again, and upon returning, he sees
         # that his list is exactly how he left it.
+        self.fail('Finish the test!!')
 
         # Satisfied, Bob Bobberson shuts down his computer and goes to sleep.
 

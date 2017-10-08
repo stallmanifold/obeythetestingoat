@@ -1,10 +1,10 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-import unittest
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -27,7 +27,7 @@ class NewVisitorTest(unittest.TestCase):
         # memorize them all. Not being a very bright fellow and having a terrible memory, 
         # Bob decides to imcriminate himself by typing his list at the To-Do list site.
         # He proceeds to the homepage.
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
         
         # He observes the page title involves making To-Do lists.
         self.assertIn('To-Do', self.browser.title)
@@ -82,6 +82,3 @@ class NewVisitorTest(unittest.TestCase):
         # One hour later, while Bob is dead asleep, a missile comes flying through his
         # window and he and his apartment are blown to smithereens. We never hear 
         # from Bob Bobberson the infamous chuckleheaded terrorist ever again.
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')

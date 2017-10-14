@@ -70,8 +70,7 @@ class NewVisitorTest(FunctionalTest):
         # One hour later, while Bob is dead asleep, a missile comes flying through his
         # window and he and his apartment are blown to smithereens. We never hear 
         # from Bob Bobberson the infamous chuckleheaded terrorist ever again.
-
-    
+   
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Edith starts a new to-do list.
         self.browser.get(self.live_server_url)

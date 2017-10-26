@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from accounts.authentication import PasswordlessAuthenticationBackend
 from accounts.models import Token
-
 User = get_user_model()
 
 
@@ -31,6 +30,7 @@ class AuthenticateTest(TestCase):
         self.assertEqual(user, existing_user)
 
 
+
 class GetUserTest(TestCase):
 
     def test_gets_user_by_email(self):
@@ -46,3 +46,4 @@ class GetUserTest(TestCase):
         self.assertIsNone(
             PasswordlessAuthenticationBackend().get_user('edith@example.com')
         )
+

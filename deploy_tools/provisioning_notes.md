@@ -1,44 +1,36 @@
-# Provisioning A New Site
-=========================
+Provisioning a new site
+=======================
 
-## Required Packages:
-```
+## Required packages:
+
 * nginx
 * Python 3.6
 * virtualenv + pip
 * Git
-```
 
-For example, on `Ubuntu`, do the following:
-```    
-$ sudo add-apt-repository ppa:deadsnakes
-$ sudo apt-get install nginx git python3.6 python3.6-venv
-```
+eg, on Ubuntu:
 
-## Nginx Virtual Host Config
-```
-* See nginx.template.conf
-* Replace SITENAME with, e.g., staging,my-domain.com
-```
+    sudo add-apt-repository ppa:fkrull/deadsnakes
+    sudo apt-get install nginx git python36 python3.6-venv
 
-## Systemd Service
-```
-* See gunicorn-systemd.template.service
-* Replace SITENAME with, e.g., staging.my-domain.com
-```
+## Nginx Virtual Host config
 
-## Folder structure
+* see nginx.template.conf
+* replace SITENAME with, e.g., staging.my-domain.com
 
-Assume we have a user account at `/home/username` on the deployment server.
-The folder structure may look as follows.
+## Systemd service
 
-```
-$ tree /home/username
+* see gunicorn-systemd.template.service
+* replace SITENAME with, e.g., staging.my-domain.com
+* replace SEKRIT with email password
+
+## Folder structure:
+Assume we have a user account at /home/username
+
 /home/username
 └── sites
-    └── SITENAME
-        ├── database
-        ├── source
-        ├── static
-        └── virtualenv
-```
+    └── SITENAME
+         ├── database
+         ├── source
+         ├── static
+         └── virtualenv
